@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Binary {
+    public static void main(String[] args){
+
+        int[] Customer_id={11,12,13,14,15,16};
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter search key:");
+        int Key=in.nextInt();
+        int Ans=binary_search(Customer_id, Key);
+        if(Ans!=-1){
+            System.out.println("Search found at index:"+Ans);
+        }
+        else{
+            System.out.println("Customer id not found");
+        }
+    }
+
+
+    public static int binary_search(int[]arr, int key){
+        int l=0;
+        int h=arr.length-1;
+        while(l<=h){
+            int mid=l+h/2;
+            if(arr[mid]==key){
+                return mid;
+            }
+            else if(arr[mid]<key){
+                l=mid+1;
+            }
+            else{
+                h=mid-1;
+            }
+        }
+        return -1;
+    }
+
+}
